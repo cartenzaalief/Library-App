@@ -47,7 +47,7 @@ const Login = (props) => {
         className="shadow rounded-4 p-5"
         style={{ width: 550, marginLeft: 100, marginRight: 100 }}
       >
-        <Text fontSize="4xl" fontWeight="semibold">
+        <Text fontSize="4xl" fontWeight="bold">
           Login
         </Text>
         <Text className="mt-4">Username</Text>
