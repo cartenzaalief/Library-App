@@ -50,7 +50,11 @@ const Register = (props) => {
       .then((res) => {
         console.log(res.data);
         alert(res.data.message);
-        navigate("/login", { replace: true });
+        if (res.data.success) {
+          navigate("/login", { replace: true });
+        } else {
+          window.location.reload(false);
+        }
       })
       .catch((error) => {
         console.log(error);

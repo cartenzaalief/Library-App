@@ -9,9 +9,12 @@ import {
 import Axios from "axios";
 import { API_URL } from "../helper";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../actions/usersAction";
 
 const Login = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Show and hide password
   const [show, setShow] = useState(false);
@@ -28,10 +31,14 @@ const Login = (props) => {
       password,
     })
       .then((res) => {
-        alert("Log In Success");
-        console.log(res.data);
-        localStorage.setItem("librarylabs_login", JSON.stringify(res.data));
-        navigate("/", { replace: true });
+        alert(res.data.message);
+        if (res.data.success) {
+          dispatch(loginAction(res.data.value));
+          localStorage.setItem("librarylabs_login", res.data.value.token);
+          navigate("/", { replace: true });
+        } else {
+          window.location.reload(false);
+        }
       })
       .catch((error) => {
         console.log(error);
