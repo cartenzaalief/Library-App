@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { API_URL } from "./helper";
 import { loginAction } from "./actions/usersAction";
+import { Box } from "@chakra-ui/react";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,14 +45,14 @@ function App() {
   }, []);
 
   return (
-    <div className="d-flex">
-      <Sidebar loading={loading} />
+    <Box>
+      <Navbar loading={loading} />
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-    </div>
+    </Box>
   );
 }
 

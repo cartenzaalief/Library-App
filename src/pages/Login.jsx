@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import {
-  Text,
+  Button,
+  Box,
+  Container,
+  Flex,
+  FormControl,
+  FormHelperText,
+  FormLabel,
   Input,
   InputGroup,
   InputRightElement,
-  Button,
+  Text,
+  Heading,
+  VStack,
 } from "@chakra-ui/react";
 import Axios from "axios";
 import { API_URL } from "../helper";
@@ -46,47 +54,45 @@ const Login = (props) => {
   };
 
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ width: "85vw" }}
-    >
-      <div
-        className="shadow rounded-4 p-5"
-        style={{ width: 550, marginLeft: 100, marginRight: 100 }}
+    <Container>
+      <VStack
+        border={["", "", "1px"]}
+        borderColor={["", "", "twitter.600"]}
+        rounded="xl"
+        p="10"
+        mt="15vh"
       >
-        <Text fontSize="4xl" fontWeight="bold">
-          Login
-        </Text>
-        <Text className="mt-4">Username</Text>
-        <Input
-          className="mt-2"
-          placeholder="Enter Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Text className="mt-2">Password</Text>
-        <InputGroup className="mt-2" size="md">
+        <Heading>Login</Heading>
+        <Text>Enter your username and password</Text>
+        <FormControl>
+          <FormLabel>Username</FormLabel>
           <Input
-            pr="4.5rem"
-            type={show ? "text" : "password"}
-            placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter username"
+            onChange={(e) => setUsername(e.target.value)}
           />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-        <Button
-          className="mt-4"
-          colorScheme="twitter"
-          style={{ width: 100 }}
-          onClick={loginButton}
-        >
+        </FormControl>
+        <FormControl>
+          <FormLabel>Password</FormLabel>
+          <InputGroup size="md">
+            <Input
+              pr="4.5rem"
+              type={show ? "text" : "password"}
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClick}>
+                {show ? "Hide" : "Show"}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+          <FormHelperText>We'll never share your password</FormHelperText>
+        </FormControl>
+        <Button colorScheme="twitter" w="full" onClick={loginButton}>
           Log In
         </Button>
-      </div>
-    </div>
+      </VStack>
+    </Container>
   );
 };
 

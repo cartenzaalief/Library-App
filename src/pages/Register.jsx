@@ -9,11 +9,15 @@ import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
+  Container,
+  Flex,
+  Box,
 } from "@chakra-ui/react";
 import { BsTelephoneFill } from "react-icons/bs";
 import { API_URL } from "../helper";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import library from "../assets/images/library.jpeg";
 
 const Register = (props) => {
   // Redirect page
@@ -69,7 +73,7 @@ const Register = (props) => {
       <div className="d-flex shadow rounded-4" style={{ width: 900 }}>
         <img
           className="rounded-start-4"
-          src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGlicmFyeXxlbnwwfHwwfHw%3D&w=1000&q=80"
+          src={library}
           alt=""
           style={{ height: 600 }}
         />
