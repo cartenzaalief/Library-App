@@ -2,18 +2,18 @@ import React from "react";
 import { GiBookshelf } from "react-icons/gi";
 import {
   Avatar,
-  Button,
   Box,
+  Button,
   Flex,
   Heading,
   Icon,
   Link,
-  Spinner,
-  Text,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  Spinner,
+  Text,
 } from "@chakra-ui/react";
 import { MdDashboardCustomize } from "react-icons/md";
 import { SlLoop } from "react-icons/sl";
@@ -41,57 +41,69 @@ const Navbar = (props) => {
 
   return (
     <Box
+      bg="white"
       display="grid"
-      gridTemplateColumns={["repeat(2, 1fr)", null, null, "repeat(3, 1fr)"]}
-      w="full"
+      gridTemplateColumns={["1fr", "repeat(2, 1fr)", null, "repeat(3, 1fr)"]}
       h="10vh"
-      px="10"
+      w="full"
+      px={10}
       borderBottom="1px"
       borderColor="gray.300"
+      position="fixed"
+      top={0}
+      zIndex={1}
     >
-      <Flex gap="3" alignItems="center">
-        <Icon as={GiBookshelf} boxSize="8" color="skyblue" />
+      <Flex
+        gap="3"
+        justifyContent={["center", "flex-start"]}
+        alignItems="center"
+      >
+        <Icon as={GiBookshelf} boxSize={8} color="skyblue" />
         <Heading size="md">Library Labs</Heading>
       </Flex>
       <Box
-        colSpan="2"
-        gap="5"
+        colSpan={2}
+        gap={5}
         justifyContent="space-between"
         alignItems="center"
         display={["none", "none", "none", "flex"]}
       >
         <Link href="/">
-          <Flex gap="3">
-            <Icon as={MdDashboardCustomize} mt="1" />
+          <Flex gap={3}>
+            <Icon as={MdDashboardCustomize} mt={1} />
             <Text>Dashboard</Text>
           </Flex>
         </Link>
         <Link>
-          <Flex gap="3">
-            <Icon as={SlLoop} mt="1" />
+          <Flex gap={3}>
+            <Icon as={SlLoop} mt={1} />
             <Text>Loan</Text>
           </Flex>
         </Link>
         <Link>
-          <Flex gap="3">
-            <Icon as={ImBook} mt="1" />
+          <Flex gap={3}>
+            <Icon as={ImBook} mt={1} />
             <Text>Books</Text>
           </Flex>
         </Link>
         <Link>
-          <Flex gap="3">
-            <Icon as={IoPeopleSharp} mt="1" />
+          <Flex gap={3}>
+            <Icon as={IoPeopleSharp} mt={1} />
             <Text>Members</Text>
           </Flex>
         </Link>
         <Link>
-          <Flex gap="3">
-            <Icon as={IoIosSettings} mt="1" />
+          <Flex gap={3}>
+            <Icon as={IoIosSettings} mt={1} />
             <Text>Settings</Text>
           </Flex>
         </Link>
       </Box>
-      <Box alignSelf="center" justifySelf="flex-end">
+      <Box
+        display={["none", "block"]}
+        alignSelf="center"
+        justifySelf="flex-end"
+      >
         {props.loading ? (
           <Spinner />
         ) : fullname ? (
@@ -104,13 +116,25 @@ const Navbar = (props) => {
             </MenuList>
           </Menu>
         ) : (
-          <Button
-            colorScheme="twitter"
-            variant="outline"
-            onClick={() => navigate("/login", { replace: true })}
-          >
-            Log In
-          </Button>
+          <Box>
+            <Button
+              colorScheme="twitter"
+              variant="outline"
+              onClick={() => navigate("/login", { replace: true })}
+              style={{ width: 80 }}
+            >
+              Log In
+            </Button>
+            <Button
+              colorScheme="green"
+              variant="outline"
+              onClick={() => navigate("/register", { replace: true })}
+              ms="3"
+              style={{ width: 80 }}
+            >
+              Sign Up
+            </Button>
+          </Box>
         )}
       </Box>
     </Box>

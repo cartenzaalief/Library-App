@@ -47,11 +47,13 @@ function App() {
   return (
     <Box>
       <Navbar loading={loading} />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <Box mt="10vh">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Box>
     </Box>
   );
 }

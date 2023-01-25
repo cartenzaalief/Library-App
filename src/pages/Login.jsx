@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import {
   Button,
-  Box,
   Container,
-  Flex,
   FormControl,
   FormHelperText,
   FormLabel,
+  Heading,
   Input,
   InputGroup,
   InputRightElement,
   Text,
-  Heading,
   VStack,
 } from "@chakra-ui/react";
 import Axios from "axios";
@@ -59,8 +57,8 @@ const Login = (props) => {
         border={["", "", "1px"]}
         borderColor={["", "", "twitter.600"]}
         rounded="xl"
-        p="10"
-        mt="15vh"
+        p={10}
+        mt="180px"
       >
         <Heading>Login</Heading>
         <Text>Enter your username and password</Text>
