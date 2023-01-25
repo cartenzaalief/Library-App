@@ -51,12 +51,9 @@ const Register = (props) => {
       email,
     })
       .then((res) => {
-        console.log(res.data);
         alert(res.data.message);
         if (res.data.success) {
           navigate("/login", { replace: true });
-        } else {
-          window.location.reload(false);
         }
       })
       .catch((error) => {
@@ -105,7 +102,7 @@ const Register = (props) => {
                     children={<BsTelephoneFill color="lightgray" />}
                   />
                   <Input
-                    type="tel"
+                    type="number"
                     placeholder="Enter phone number"
                     onChange={(e) => setPhone(e.target.value)}
                   />
@@ -149,6 +146,7 @@ const Register = (props) => {
                 <FormLabel>E-mail</FormLabel>
                 <Input
                   placeholder="Enter e-mail"
+                  type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
@@ -223,7 +221,7 @@ const Register = (props) => {
                   children={<BsTelephoneFill color="lightgray" />}
                 />
                 <Input
-                  type="tel"
+                  type="number"
                   placeholder="Enter phone number"
                   onChange={(e) => setPhone(e.target.value)}
                 />
@@ -233,6 +231,7 @@ const Register = (props) => {
               <FormLabel>E-mail</FormLabel>
               <Input
                 placeholder="Enter e-mail"
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </FormControl>
