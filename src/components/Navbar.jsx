@@ -2,6 +2,7 @@ import React from "react";
 import { GiBookshelf } from "react-icons/gi";
 import {
   Avatar,
+  AvatarBadge,
   Box,
   Button,
   Flex,
@@ -10,6 +11,7 @@ import {
   Link,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuItem,
   MenuList,
   Spinner,
@@ -23,6 +25,7 @@ import { IoIosSettings } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutAction } from "../actions/usersAction";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
@@ -108,11 +111,19 @@ const Navbar = (props) => {
           <Spinner />
         ) : fullname ? (
           <Menu>
-            <MenuButton>
-              <Avatar name={fullname} />
+            <MenuButton type="button">
+              <Avatar name={fullname} size="md">
+                <AvatarBadge boxSize="1em" bg="green.500" />
+              </Avatar>
             </MenuButton>
-            <MenuList>
-              <MenuItem onClick={logoutButton}>Log Out</MenuItem>
+            <MenuList textColor="black">
+              <MenuItem>Cart</MenuItem>
+              <MenuItem>Transaction</MenuItem>
+              <MenuDivider />
+              <MenuItem onClick={logoutButton}>
+                Logout
+                <Icon as={AiOutlineLogout} ms={1} mt={0.5} />
+              </MenuItem>
             </MenuList>
           </Menu>
         ) : (
