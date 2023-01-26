@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { API_URL } from "./helper";
 import { loginAction } from "./actions/usersAction";
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
@@ -65,12 +65,12 @@ function App() {
   return (
     <Box>
       <Navbar loading={loading} />
-      <Box mt="10vh">
+      <Box mt="75px">
         <Routes>
           {!show ? null : username ? null : (
             <>
-              <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
             </>
           )}
           <Route path="/" element={<Dashboard />} />

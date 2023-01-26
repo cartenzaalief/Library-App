@@ -10,18 +10,18 @@ import {
 
 const Footer = () => {
   return (
-    <Box>
+    <Box bottom={0}>
       <Box
         bg="#162026"
         display="grid"
         gridTemplateColumns={["1fr", null, null, "repeat(4, 1fr)"]}
         px={20}
-        py={10}
+        h="225px"
       >
         <Heading color="white" m="auto">
           Library Labs
         </Heading>
-        <Box display={["none", "none", "none", "block"]}>
+        <Box display={["none", "none", "none", "block"]} alignSelf="center">
           <VStack>
             <VStack align="flex-start">
               <Text color="white" fontSize="xl" fontWeight="bold">
@@ -33,7 +33,7 @@ const Footer = () => {
             </VStack>
           </VStack>
         </Box>
-        <Box display={["none", "none", "none", "block"]}>
+        <Box display={["none", "none", "none", "block"]} alignSelf="center">
           <VStack>
             <VStack align="flex-start">
               <Text color="white" fontSize="xl" fontWeight="bold">
@@ -54,7 +54,7 @@ const Footer = () => {
             </VStack>
           </VStack>
         </Box>
-        <Box display={["none", "none", "none", "block"]}>
+        <Box display={["none", "none", "none", "block"]} alignSelf="center">
           <VStack>
             <VStack align="flex-start">
               <Text color="white" fontSize="xl" fontWeight="bold">
@@ -67,12 +67,12 @@ const Footer = () => {
         </Box>
       </Box>
       <Box
+        h="35px"
         bg="#94B94B"
-        align="center"
-        borderTop="1px"
-        borderColor="white"
         py={2}
-        display={["none", "block"]}
+        display={["none", "flex"]}
+        justifyContent="center"
+        alignItems="center"
       >
         <Text color="white">
           This site is protected by Privacy Policy and Terms of Service apply.

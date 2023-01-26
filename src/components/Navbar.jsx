@@ -47,7 +47,7 @@ const Navbar = (props) => {
       bg="#040F16"
       display="grid"
       gridTemplateColumns={["1fr", "repeat(2, 1fr)", null, "repeat(3, 1fr)"]}
-      h="10vh"
+      h="75px"
       w="full"
       borderBottom="1px"
       borderColor="white"
@@ -129,23 +129,14 @@ const Navbar = (props) => {
             </MenuList>
           </Menu>
         ) : (
-          <Box>
-            <Button
-              colorScheme="twitter"
-              onClick={() => navigate("/login", { replace: true })}
-              style={{ width: 80 }}
-            >
-              Log In
-            </Button>
-            <Button
-              colorScheme="green"
-              onClick={() => navigate("/register", { replace: true })}
-              ms="3"
-              style={{ width: 80, backgroundColor: "#94B94B" }}
-            >
-              Sign Up
-            </Button>
-          </Box>
+          <Button
+            color="white"
+            bg="#94B94B"
+            onClick={() => navigate("/login", { replace: true })}
+            style={{ width: 80 }}
+          >
+            Log In
+          </Button>
         )}
       </Box>
     </Box>

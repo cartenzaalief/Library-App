@@ -64,17 +64,12 @@ const Register = (props) => {
   };
 
   return (
-    <Box p={50}>
+    <Box p={50} bg="#040F16">
       <Container maxW={900}>
-        <VStack
-          bg="#162026"
-          spacing={5}
-          rounded="xl"
-          p={10}
-        >
+        <VStack bg="#162026" spacing={5} rounded="xl" p={10}>
           <VStack spacing={3}>
             <Heading color="white">Sign Up</Heading>
-            <Text color="white">Create a Library Labs account</Text>
+            <Text color="white">Create Library Labs account</Text>
           </VStack>
 
           {/* Responsive for desktop */}
@@ -299,12 +294,7 @@ const Register = (props) => {
             </VStack>
           </Box>
 
-          <Button
-            w="100%"
-            colorScheme="green"
-            style={{ backgroundColor: "#94B94B" }}
-            onClick={registerButton}
-          >
+          <Button w="100%" color="white" bg="#94B94B" onClick={registerButton}>
             Sign Up
           </Button>
         </VStack>

@@ -10,6 +10,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -53,9 +54,9 @@ const Login = (props) => {
   };
 
   return (
-    <Box py={100}>
+    <Box py={100} bg="#040F16">
       <Container>
-        <VStack bg="#162026" rounded="xl" p={10}>
+        <VStack bg="#162026" rounded="xl" p={10} spacing={5}>
           <Heading color="white">Login</Heading>
           <Text color="white">Enter your username and password</Text>
           <FormControl>
@@ -91,9 +92,15 @@ const Login = (props) => {
               We'll never share your password
             </FormHelperText>
           </FormControl>
-          <Button colorScheme="twitter" w="full" onClick={loginButton}>
+          <Button color="white" bg="#94B94B" w="full" onClick={loginButton}>
             Log In
           </Button>
+          <Link
+            onClick={() => navigate("/register", { replace: true })}
+            color="white"
+          >
+            Create account
+          </Link>
         </VStack>
       </Container>
     </Box>
