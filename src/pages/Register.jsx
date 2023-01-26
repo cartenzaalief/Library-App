@@ -7,6 +7,7 @@ import {
   FormLabel,
   Heading,
   HStack,
+  Icon,
   Input,
   InputGroup,
   InputRightElement,
@@ -63,46 +64,192 @@ const Register = (props) => {
   };
 
   return (
-    <Container maxW={1000}>
-      <VStack
-        spacing={5}
-        border={["", null, "1px"]}
-        borderColor={["", null, "twitter.600"]}
-        rounded="xl"
-        p={10}
-        mt="15vh"
-      >
-        <VStack spacing={3}>
-          <Heading>Sign Up</Heading>
-          <Text>Create a Library Labs account</Text>
-        </VStack>
+    <Box p={50}>
+      <Container maxW={900}>
+        <VStack
+          bg="#162026"
+          spacing={5}
+          rounded="xl"
+          p={10}
+        >
+          <VStack spacing={3}>
+            <Heading color="white">Sign Up</Heading>
+            <Text color="white">Create a Library Labs account</Text>
+          </VStack>
 
-        {/* Responsive for desktop */}
-        <Box w="full" display={["none", null, "block"]}>
-          <HStack align="flex-start" spacing={10}>
-            <VStack w="50%">
+          {/* Responsive for desktop */}
+          <Box w="full" display={["none", null, "block"]}>
+            <HStack align="flex-start" spacing={10}>
+              <VStack w="50%">
+                <FormControl>
+                  <FormLabel color="white">Username</FormLabel>
+                  <Input
+                    bg="white"
+                    placeholder="Enter username"
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">Full name</FormLabel>
+                  <Input
+                    bg="white"
+                    placeholder="Enter full name"
+                    onChange={(e) => setFullname(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">Phone</FormLabel>
+                  <InputGroup>
+                    <Input
+                      bg="white"
+                      type="number"
+                      placeholder="Enter phone number"
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                    <InputRightElement
+                      pointerEvents="none"
+                      children={
+                        <Icon as={BsTelephoneFill} color="lightgray" me={4} />
+                      }
+                    />
+                  </InputGroup>
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">Date of birth</FormLabel>
+                  <Input
+                    bg="white"
+                    placeholder="Select Date"
+                    size="md"
+                    type="date"
+                    onChange={(e) => setBirthdate(e.target.value)}
+                  />
+                </FormControl>
+              </VStack>
+              <VStack w="50%">
+                <FormControl>
+                  <FormLabel color="white">Password</FormLabel>
+                  <InputGroup size="md">
+                    <Input
+                      bg="white"
+                      pr="4.5rem"
+                      type={show ? "text" : "password"}
+                      placeholder="Enter password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <InputRightElement width="4.5rem">
+                      <Button
+                        colorScheme="blackAlpha"
+                        h="1.75rem"
+                        size="sm"
+                        onClick={handleClick}
+                      >
+                        {show ? "Hide" : "Show"}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">Address</FormLabel>
+                  <Input
+                    bg="white"
+                    placeholder="Enter address"
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">E-mail</FormLabel>
+                  <Input
+                    bg="white"
+                    placeholder="Enter e-mail"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel color="white">Gender</FormLabel>
+                  <RadioGroup mt={4}>
+                    <HStack spacing={10}>
+                      <Radio
+                        bg="white"
+                        value="Male"
+                        onChange={(e) => setGender(e.target.value)}
+                      >
+                        <Text color="white">Male</Text>
+                      </Radio>
+                      <Radio
+                        bg="white"
+                        value="Female"
+                        onChange={(e) => setGender(e.target.value)}
+                      >
+                        <Text color="white">Female</Text>
+                      </Radio>
+                    </HStack>
+                  </RadioGroup>
+                </FormControl>
+              </VStack>
+            </HStack>
+          </Box>
+
+          {/* Responsive for phone and tablet */}
+          <Box display={["block", null, "none"]} w="full">
+            <VStack>
               <FormControl>
-                <FormLabel>Username</FormLabel>
+                <FormLabel color="white">Username</FormLabel>
                 <Input
+                  bg="white"
                   placeholder="Enter username"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel>Full name</FormLabel>
+                <FormLabel color="white">Password</FormLabel>
+                <InputGroup size="md">
+                  <Input
+                    bg="white"
+                    pr="4.5rem"
+                    type={show ? "text" : "password"}
+                    placeholder="Enter password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      colorScheme="blackAlpha"
+                      h="1.75rem"
+                      size="sm"
+                      onClick={handleClick}
+                    >
+                      {show ? "Hide" : "Show"}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
+              <FormControl>
+                <FormLabel color="white">Full name</FormLabel>
                 <Input
+                  bg="white"
                   placeholder="Enter full name"
                   onChange={(e) => setFullname(e.target.value)}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel>Phone</FormLabel>
+                <FormLabel color="white">Address</FormLabel>
+                <Input
+                  bg="white"
+                  placeholder="Enter address"
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel color="white">Phone</FormLabel>
                 <InputGroup>
                   <InputRightElement
                     pointerEvents="none"
-                    children={<BsTelephoneFill color="lightgray" />}
+                    children={
+                      <Icon as={BsTelephoneFill} color="lightgray" me={4} />
+                    }
                   />
                   <Input
+                    bg="white"
                     type="number"
                     placeholder="Enter phone number"
                     onChange={(e) => setPhone(e.target.value)}
@@ -110,168 +257,59 @@ const Register = (props) => {
                 </InputGroup>
               </FormControl>
               <FormControl>
-                <FormLabel>Date of birth</FormLabel>
+                <FormLabel color="white">E-mail</FormLabel>
                 <Input
-                  placeholder="Select Date"
-                  size="md"
-                  type="date"
-                  onChange={(e) => setBirthdate(e.target.value)}
-                />
-              </FormControl>
-            </VStack>
-            <VStack w="50%">
-              <FormControl>
-                <FormLabel>Password</FormLabel>
-                <InputGroup size="md">
-                  <Input
-                    pr="4.5rem"
-                    type={show ? "text" : "password"}
-                    placeholder="Enter password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                      {show ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <FormLabel>Address</FormLabel>
-                <Input
-                  placeholder="Enter address"
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel>E-mail</FormLabel>
-                <Input
+                  bg="white"
                   placeholder="Enter e-mail"
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel>Gender</FormLabel>
+                <FormLabel color="white">Date of birth</FormLabel>
+                <Input
+                  bg="white"
+                  placeholder="Select Date"
+                  size="md"
+                  type="date"
+                  onChange={(e) => setBirthdate(e.target.value)}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel color="white">Gender</FormLabel>
                 <RadioGroup mt={4}>
                   <HStack spacing={10}>
                     <Radio
+                      bg="white"
                       value="Male"
                       onChange={(e) => setGender(e.target.value)}
                     >
-                      Male
+                      <Text color="white">Male</Text>
                     </Radio>
                     <Radio
+                      bg="white"
                       value="Female"
                       onChange={(e) => setGender(e.target.value)}
                     >
-                      Female
+                      <Text color="white">Female</Text>
                     </Radio>
                   </HStack>
                 </RadioGroup>
               </FormControl>
             </VStack>
-          </HStack>
-        </Box>
+          </Box>
 
-        {/* Responsive for phone and tablet */}
-        <Box display={["block", null, "none"]} w="full">
-          <VStack>
-            <FormControl>
-              <FormLabel>Username</FormLabel>
-              <Input
-                placeholder="Enter username"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Password</FormLabel>
-              <InputGroup size="md">
-                <Input
-                  pr="4.5rem"
-                  type={show ? "text" : "password"}
-                  placeholder="Enter password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <FormLabel>Full name</FormLabel>
-              <Input
-                placeholder="Enter full name"
-                onChange={(e) => setFullname(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Address</FormLabel>
-              <Input
-                placeholder="Enter address"
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Phone</FormLabel>
-              <InputGroup>
-                <InputRightElement
-                  pointerEvents="none"
-                  children={<BsTelephoneFill color="lightgray" />}
-                />
-                <Input
-                  type="number"
-                  placeholder="Enter phone number"
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <FormLabel>E-mail</FormLabel>
-              <Input
-                placeholder="Enter e-mail"
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Date of birth</FormLabel>
-              <Input
-                placeholder="Select Date"
-                size="md"
-                type="date"
-                onChange={(e) => setBirthdate(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Gender</FormLabel>
-              <RadioGroup mt={4}>
-                <HStack spacing={10}>
-                  <Radio
-                    value="Male"
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    Male
-                  </Radio>
-                  <Radio
-                    value="Female"
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    Female
-                  </Radio>
-                </HStack>
-              </RadioGroup>
-            </FormControl>
-          </VStack>
-        </Box>
-
-        <Button w="100%" colorScheme="twitter" onClick={registerButton}>
-          Sign Up
-        </Button>
-      </VStack>
-    </Container>
+          <Button
+            w="100%"
+            colorScheme="green"
+            style={{ backgroundColor: "#94B94B" }}
+            onClick={registerButton}
+          >
+            Sign Up
+          </Button>
+        </VStack>
+      </Container>
+    </Box>
   );
 };
 

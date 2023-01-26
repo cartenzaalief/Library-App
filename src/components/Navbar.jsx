@@ -44,14 +44,14 @@ const Navbar = (props) => {
 
   return (
     <Box
-      bg="white"
+      bg="#040F16"
       display="grid"
       gridTemplateColumns={["1fr", "repeat(2, 1fr)", null, "repeat(3, 1fr)"]}
       h="10vh"
       w="full"
-      px={10}
       borderBottom="1px"
-      borderColor="gray.300"
+      borderColor="white"
+      px={10}
       position="fixed"
       top={0}
       zIndex={1}
@@ -61,8 +61,10 @@ const Navbar = (props) => {
         justifyContent={["center", "flex-start"]}
         alignItems="center"
       >
-        <Icon as={GiBookshelf} boxSize={8} color="skyblue" />
-        <Heading size="md">Library Labs</Heading>
+        <Icon as={GiBookshelf} boxSize={8} color="white" />
+        <Heading size="md" color="white">
+          Library Labs
+        </Heading>
       </Flex>
       <Box
         colSpan={2}
@@ -73,32 +75,32 @@ const Navbar = (props) => {
       >
         <Link href="/">
           <Flex gap={3}>
-            <Icon as={MdDashboardCustomize} mt={1} />
-            <Text>Dashboard</Text>
+            <Icon as={MdDashboardCustomize} mt={1} color="white" />
+            <Text color="white">Dashboard</Text>
           </Flex>
         </Link>
         <Link>
           <Flex gap={3}>
-            <Icon as={SlLoop} mt={1} />
-            <Text>Loan</Text>
+            <Icon as={SlLoop} mt={1} color="white" />
+            <Text color="white">Loan</Text>
           </Flex>
         </Link>
         <Link>
           <Flex gap={3}>
-            <Icon as={ImBook} mt={1} />
-            <Text>Books</Text>
+            <Icon as={ImBook} mt={1} color="white" />
+            <Text color="white">Books</Text>
           </Flex>
         </Link>
         <Link>
           <Flex gap={3}>
-            <Icon as={IoPeopleSharp} mt={1} />
-            <Text>Members</Text>
+            <Icon as={IoPeopleSharp} mt={1} color="white" />
+            <Text color="white">Members</Text>
           </Flex>
         </Link>
         <Link>
           <Flex gap={3}>
-            <Icon as={IoIosSettings} mt={1} />
-            <Text>Settings</Text>
+            <Icon as={IoIosSettings} mt={1} color="white" />
+            <Text color="white">Settings</Text>
           </Flex>
         </Link>
       </Box>
@@ -130,7 +132,6 @@ const Navbar = (props) => {
           <Box>
             <Button
               colorScheme="twitter"
-              variant="outline"
               onClick={() => navigate("/login", { replace: true })}
               style={{ width: 80 }}
             >
@@ -138,10 +139,9 @@ const Navbar = (props) => {
             </Button>
             <Button
               colorScheme="green"
-              variant="outline"
               onClick={() => navigate("/register", { replace: true })}
               ms="3"
-              style={{ width: 80 }}
+              style={{ width: 80, backgroundColor: "#94B94B" }}
             >
               Sign Up
             </Button>

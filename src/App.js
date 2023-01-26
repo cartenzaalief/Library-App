@@ -2,21 +2,30 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Verification from "./pages/Verification";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { API_URL } from "./helper";
 import { loginAction } from "./actions/usersAction";
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
+  const [show, setShow] = useState(false);
+
+  const { username } = useSelector((state) => {
+    return {
+      username: state.usersReducer.username,
+    };
+  });
 
   const keepLogin = () => {
     let getLocalStorage = localStorage.getItem("librarylabs_login");
@@ -45,17 +54,31 @@ function App() {
     keepLogin();
   }, []);
 
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      setShow(true);
+    }, 1000);
+
+    return () => clearTimeout(timeOut);
+  }, [show]);
+
   return (
     <Box>
       <Navbar loading={loading} />
       <Box mt="10vh">
         <Routes>
+          {!show ? null : username ? null : (
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </>
+          )}
           <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/verification" element={<Verification />} />
         </Routes>
       </Box>
+      <Footer />
     </Box>
   );
 }
