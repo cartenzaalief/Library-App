@@ -51,6 +51,7 @@ const Register = (props) => {
       email,
     })
       .then((res) => {
+        console.log(res.data);
         alert(res.data.message);
         if (res.data.success) {
           navigate("/login", { replace: true });

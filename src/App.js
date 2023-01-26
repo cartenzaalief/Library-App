@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Verification from "./pages/Verification";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Axios from "axios";
@@ -52,6 +53,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verification" element={<Verification />} />
         </Routes>
       </Box>
     </Box>
