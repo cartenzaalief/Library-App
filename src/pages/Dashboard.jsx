@@ -1,10 +1,11 @@
 import React from "react";
 import {
+  Avatar,
   Box,
   Button,
   Card,
   CardBody,
-  CardHeader,
+  Flex,
   Grid,
   GridItem,
   Heading,
@@ -16,23 +17,28 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiFillStar } from "react-icons/ai";
 
 const Dashboard = (props) => {
   return (
     <Box bg="#040F16">
+      {/* Box 1 */}
       <Box
         bgImage="url('https://assets.weforum.org/article/image/responsive_big_webp_hySrQhk9QgN45B-0z8PR0bd8ZRyDZ9LnvzPSGaIb91Q.webp')"
         bgSize="contain"
       >
         <Box
-          w="60vw"
-          bg="#040F16"
-          ps={100}
+          w={["full", null, null, "60vw"]}
+          bg={["", null, null, "#040F16"]}
+          px={100}
           py={100}
-          borderBottomRightRadius={500}
+          borderRightRadius={["", null, null, 50]}
         >
-          <Box w="80%">
+          <Box
+            bg={["#040F16", null, null, "transparent"]}
+            borderRadius={20}
+            p={[10, null, null, 0]}
+          >
             <Text fontSize="2xl" fontWeight="bold" color="#94B94B">
               FIND BOOKS AND AUTHORS YOU LOVE AND DISCOVER MORE
             </Text>
@@ -55,9 +61,15 @@ const Dashboard = (props) => {
           </Box>
         </Box>
       </Box>
-      <Box px={100} pt={100}>
+
+      {/* Box 2 */}
+      <Box px={100} pt={150}>
         <Heading color="#94B94B">New Publications</Heading>
-        <Grid mt={50} px={100} templateColumns="repeat(4, 1fr)" gap={5}>
+        <Grid
+          mt={50}
+          templateColumns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}
+          gap={5}
+        >
           <GridItem>
             <Card bg="#162026">
               <CardBody>
@@ -160,9 +172,15 @@ const Dashboard = (props) => {
           </GridItem>
         </Grid>
       </Box>
-      <Box px={100} py={100}>
+
+      {/* Box 3 */}
+      <Box px={100} pt={150}>
         <Heading color="#94B94B">Frequently Borrowed</Heading>
-        <Grid mt={50} px={100} templateColumns="repeat(4, 1fr)" gap={5}>
+        <Grid
+          mt={50}
+          templateColumns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}
+          gap={5}
+        >
           <GridItem>
             <Card bg="#162026">
               <CardBody>
@@ -260,6 +278,131 @@ const Dashboard = (props) => {
                     Loan
                   </Button>
                 </VStack>
+              </CardBody>
+            </Card>
+          </GridItem>
+        </Grid>
+      </Box>
+
+      {/* Box 4 */}
+      <Box px={100} py={100}>
+        <Heading color="#94B94B" textAlign="center">
+          Latest Book Reviews
+        </Heading>
+        <Grid
+          mt={50}
+          templateColumns={["1fr", null, null, "repeat(3, 1fr)"]}
+          gap={10}
+          justifySelf="center"
+        >
+          <GridItem>
+            <Card
+              bg="#162026"
+              border="1px"
+              borderStyle="dashed"
+              borderColor="#94B94B"
+            >
+              <CardBody>
+                <Flex justifyContent="space-between">
+                  <Flex alignItems="center" gap={4}>
+                    <Avatar />
+                    <Text color="white">Username</Text>
+                  </Flex>
+                  <Flex alignItems="center">
+                    <Icon as={AiFillStar} color="yellow" />
+                    <Text color="white">5.0</Text>
+                  </Flex>
+                </Flex>
+                <Text mt={5} color="white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+                  mollitia, asperiores saepe dolores enim deserunt debitis hic
+                  obcaecati sit dolor, cum vitae nobis non similique. Dolore
+                  animi totam deleniti id.
+                </Text>
+                <Flex mt={5} justifyContent="space-between">
+                  <Box>
+                    <Text color="white">Book Title</Text>
+                    <Text color="white">Writer</Text>
+                  </Box>
+                  <Image
+                    src="https://www.gramedia.com/blog/content/images/2018/11/fantasticbeasts-1.jpg"
+                    h={100}
+                  />
+                </Flex>
+              </CardBody>
+            </Card>
+          </GridItem>
+          <GridItem>
+            <Card
+              bg="#162026"
+              border="1px"
+              borderStyle="dashed"
+              borderColor="#94B94B"
+            >
+              <CardBody>
+                <Flex justifyContent="space-between">
+                  <Flex alignItems="center" gap={4}>
+                    <Avatar />
+                    <Text color="white">Username</Text>
+                  </Flex>
+                  <Flex alignItems="center">
+                    <Icon as={AiFillStar} color="yellow" />
+                    <Text color="white">5.0</Text>
+                  </Flex>
+                </Flex>
+                <Text mt={5} color="white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+                  mollitia, asperiores saepe dolores enim deserunt debitis hic
+                  obcaecati sit dolor, cum vitae nobis non similique. Dolore
+                  animi totam deleniti id.
+                </Text>
+                <Flex mt={5} justifyContent="space-between">
+                  <Box>
+                    <Text color="white">Book Title</Text>
+                    <Text color="white">Writer</Text>
+                  </Box>
+                  <Image
+                    src="https://www.gramedia.com/blog/content/images/2018/11/fantasticbeasts-1.jpg"
+                    h={100}
+                  />
+                </Flex>
+              </CardBody>
+            </Card>
+          </GridItem>
+          <GridItem>
+            <Card
+              bg="#162026"
+              border="1px"
+              borderStyle="dashed"
+              borderColor="#94B94B"
+            >
+              <CardBody>
+                <Flex justifyContent="space-between">
+                  <Flex alignItems="center" gap={4}>
+                    <Avatar />
+                    <Text color="white">Username</Text>
+                  </Flex>
+                  <Flex alignItems="center">
+                    <Icon as={AiFillStar} color="yellow" />
+                    <Text color="white">5.0</Text>
+                  </Flex>
+                </Flex>
+                <Text mt={5} color="white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+                  mollitia, asperiores saepe dolores enim deserunt debitis hic
+                  obcaecati sit dolor, cum vitae nobis non similique. Dolore
+                  animi totam deleniti id.
+                </Text>
+                <Flex mt={5} justifyContent="space-between">
+                  <Box>
+                    <Text color="white">Book Title</Text>
+                    <Text color="white">Writer</Text>
+                  </Box>
+                  <Image
+                    src="https://www.gramedia.com/blog/content/images/2018/11/fantasticbeasts-1.jpg"
+                    h={100}
+                  />
+                </Flex>
               </CardBody>
             </Card>
           </GridItem>
