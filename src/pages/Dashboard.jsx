@@ -26,44 +26,36 @@ const Dashboard = (props) => {
       <Box
         bgImage="url('https://assets.weforum.org/article/image/responsive_big_webp_hySrQhk9QgN45B-0z8PR0bd8ZRyDZ9LnvzPSGaIb91Q.webp')"
         bgSize="contain"
+        py={100}
+        px={10}
       >
         <Box
-          w={["full", null, null, "60vw"]}
-          bg={["", null, null, "#040F16"]}
-          px={100}
-          py={100}
-          borderRightRadius={["", null, null, 50]}
+          bg="#040F16"
+          borderRadius={20}
+          p={10}
+          maxW={700}
+          m="auto"
         >
-          <Box
-            bg={["#040F16", null, null, "transparent"]}
-            borderRadius={20}
-            p={[10, null, null, 0]}
-          >
-            <Text fontSize="2xl" fontWeight="bold" color="#94B94B">
-              FIND BOOKS AND AUTHORS YOU LOVE AND DISCOVER MORE
-            </Text>
-            <InputGroup mt={30}>
-              <Input
-                bg="white"
-                h={50}
-                placeholder="Search for book or author"
-              />
-              <InputRightElement h="full" w={20}>
-                <Button color="white" bg="#94B94B" h="full" w="full">
-                  <Icon as={AiOutlineSearch} boxSize={7} />
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <Text color="white" mt={30}>
-              Millions of high-quality books from all around the world and
-              recommendations for you, get started to discover all now.
-            </Text>
-          </Box>
+          <Text fontSize="2xl" fontWeight="bold" color="#94B94B">
+            FIND BOOKS AND AUTHORS YOU LOVE AND DISCOVER MORE
+          </Text>
+          <InputGroup mt={30}>
+            <Input bg="white" h={50} placeholder="Search for book or author" />
+            <InputRightElement h="full" w={20}>
+              <Button color="white" bg="#94B94B" h="full" w="full">
+                <Icon as={AiOutlineSearch} boxSize={7} />
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+          <Text color="white" mt={30}>
+            Millions of high-quality books from all around the world and
+            recommendations for you, get started to discover all now.
+          </Text>
         </Box>
       </Box>
 
       {/* Box 2 */}
-      <Box px={100} pt={150}>
+      <Box px={100} pt={100}>
         <Heading color="#94B94B">New Publications</Heading>
         <Grid
           mt={50}

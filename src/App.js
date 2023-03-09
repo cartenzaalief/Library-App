@@ -7,13 +7,16 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Verification from "./pages/Verification";
+import PageNotFound from "./pages/PageNotFound";
+import DashboardAdmin from "./pages/DashboardAdmin";
+import Books from "./pages/Books";
+import BooksModify from "./pages/BooksModify";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { API_URL } from "./helper";
 import { loginAction } from "./actions/usersAction";
 import { Box } from "@chakra-ui/react";
-import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,9 +24,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
 
-  const { username } = useSelector((state) => {
+  const { username, role } = useSelector((state) => {
     return {
       username: state.usersReducer.username,
+      role: state.usersReducer.role,
     };
   });
 
@@ -76,6 +80,13 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path="/books" element={<Books />} />
+          {!show ? null : role === "admin" ? (
+            <>
+              <Route path="/admin" element={<DashboardAdmin />} />
+              <Route path="/booksmodify" element={<BooksModify />} />
+            </>
+          ) : null}
         </Routes>
       </Box>
       <Footer />

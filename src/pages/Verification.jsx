@@ -30,8 +30,8 @@ const Verification = (props) => {
       });
   };
   return (
-    <Container maxW={1000}>
-      <VStack mt="15vh" spacing={10}>
+    <Container maxW={1000} p={10}>
+      <VStack spacing={10}>
         <Heading>Please confirm your e-mail address!</Heading>
         <Button colorScheme="twitter" variant="outline" onClick={confirmButton}>
           Confirm E-mail

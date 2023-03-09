@@ -40,10 +40,15 @@ const Login = (props) => {
     })
       .then((res) => {
         alert(res.data.message);
+        console.log(res.data.value);
         if (res.data.success) {
           dispatch(loginAction(res.data.value));
           localStorage.setItem("librarylabs_login", res.data.value.token);
-          navigate("/", { replace: true });
+          if (res.data.value.role === "admin") {
+            navigate("/admin", { replace: true });
+          } else {
+            navigate("/", { replace: true });
+          }
         } else {
           window.location.reload(false);
         }

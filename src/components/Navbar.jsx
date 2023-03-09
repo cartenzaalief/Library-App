@@ -20,7 +20,6 @@ import {
 import { MdDashboardCustomize } from "react-icons/md";
 import { SlLoop } from "react-icons/sl";
 import { ImBook } from "react-icons/im";
-import { IoPeopleSharp } from "react-icons/io5";
 import { IoIosSettings } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -31,9 +30,10 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { fullname } = useSelector((state) => {
+  const { fullname, role } = useSelector((state) => {
     return {
       fullname: state.usersReducer.fullname,
+      role: state.usersReducer.role,
     };
   });
 
@@ -85,16 +85,10 @@ const Navbar = (props) => {
             <Text color="white">Loan</Text>
           </Flex>
         </Link>
-        <Link>
+        <Link href="/books">
           <Flex gap={3}>
             <Icon as={ImBook} mt={1} color="white" />
             <Text color="white">Books</Text>
-          </Flex>
-        </Link>
-        <Link>
-          <Flex gap={3}>
-            <Icon as={IoPeopleSharp} mt={1} color="white" />
-            <Text color="white">Members</Text>
           </Flex>
         </Link>
         <Link>
@@ -121,6 +115,11 @@ const Navbar = (props) => {
             <MenuList textColor="black">
               <MenuItem>Cart</MenuItem>
               <MenuItem>Transaction</MenuItem>
+              {role === "admin" ? (
+                <MenuItem onClick={() => navigate("/admin", { replace: true })}>
+                  Admin
+                </MenuItem>
+              ) : null}
               <MenuDivider />
               <MenuItem onClick={logoutButton}>
                 Logout
